@@ -109,6 +109,9 @@ def main(argv):
     locked = v.get('locked')
     # log(locked)
     if not locked: continue # "root" object
+    if not original["type"] in [ "github", "file", "path" ]:  # ignore non-github, non-patch flake inputs
+      log(f'skipping {k=}', f'type {original["type"]}', f'original {original}', sep=', ')
+      continue
 
     # if both suffixes match, select the longer one
     is_patched = k.endswith(args.patched_suffix)
@@ -137,7 +140,10 @@ def main(argv):
          f'(builtins.getFlake "{flakepath}").inputs.{k}.outPath'])
       path = json.loads(path)
 
-      patch = (num, locked['url'], path)
+      try:
+        patch = (num, locked['url'], path)
+      except KeyError:
+        patch = (num, "", path)
       repos[name].patches.append(patch)
 
     elif is_patched:
