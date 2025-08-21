@@ -109,6 +109,8 @@ def main(argv):
     locked = v.get('locked')
     # log(locked)
     if not locked: continue # "root" object
+    if not original["type"] in [ "github", "file" ]:  # ignore non-github, non-patch flake inputs
+       continue
 
     # if both suffixes match, select the longer one
     is_patched = k.endswith(args.patched_suffix)

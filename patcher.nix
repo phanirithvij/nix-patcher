@@ -9,7 +9,7 @@
 let path = lib.makeBinPath [ nix patch2pr ];
 in stdenv.mkDerivation {
   pname = "nix-patcher";
-  version = "0.1.0";
+  version = "0.1.1";
 
   src = ./patcher.py;
   dontUnpack = true;
