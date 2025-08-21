@@ -53,6 +53,7 @@ def apply_patch(fork: str, base: str, branch: str, patch: str, dry: bool):
     '-json', patch
   ])
   out = json.loads(out)
+  print(out)
   return out['commit']
 
 

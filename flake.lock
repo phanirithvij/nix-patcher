@@ -16,9 +16,31 @@
         "type": "github"
       }
     },
+    "patch2pr": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1755838639,
+        "narHash": "sha256-ZGB+OpScoLPAI+SHv42aTm40sMQ5fcGs0j9xf+gKOH0=",
+        "owner": "phanirithvij",
+        "repo": "patch2pr",
+        "rev": "19c8162102ef36fe5d68fba68ee244cf0794bbaa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "phanirithvij",
+        "ref": "use-git",
+        "repo": "patch2pr",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "patch2pr": "patch2pr"
       }
     }
   },
